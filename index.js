@@ -3,9 +3,14 @@ const bodyparser = require("body-parser");
 const cors = require('cors');
 const connect = require("./connection/connect");
 const galleryRoutes = require("./routes/galleryRoutes");
-
-
 const app = express();
+//for deployment connection need to be in index.js file
+const mongoose = require("mongoose");
+mongoose.set('strictQuery', true);
+let mongouri = "mongodb+srv://yogeshthakare402:Yogesh402@cluster0.veopaez.mongodb.net/?retryWrites=true&w=majority"
+mongoose.connect(mongouri,{ useNewUrlParser: true, useUnifiedTopology: true })
+.then(() => {console.log("successfully connected to db");})
+.catch((err) => {console.log(err);})
 
 app.use(cors())
 
