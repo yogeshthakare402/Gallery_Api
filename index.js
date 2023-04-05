@@ -5,10 +5,12 @@ const connect = require("./connection/connect");
 const galleryRoutes = require("./routes/galleryRoutes");
 const app = express();
 //for deployment connection need to be in index.js file
+const dotenv = require("dotenv");
+dotenv.config();
 const mongoose = require("mongoose");
 mongoose.set('strictQuery', true);
 let mongouri = "mongodb+srv://yogeshthakare402:Yogesh402@cluster0.veopaez.mongodb.net/?retryWrites=true&w=majority"
-mongoose.connect(mongouri,{ useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect(process.env.MONGO_URI || mongouri,{ useNewUrlParser: true, useUnifiedTopology: true })
 .then(() => {console.log("successfully connected to db");})
 .catch((err) => {console.log(err);})
 
