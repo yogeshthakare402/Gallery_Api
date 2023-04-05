@@ -1,7 +1,7 @@
 const express = require("express");
 const bodyparser = require("body-parser");
 const cors = require('cors');
-const connect = require("./connection/connect");
+// const connect = require("./connection/connect");
 const galleryRoutes = require("./routes/galleryRoutes");
 const app = express();
 //for deployment connection need to be in index.js file
